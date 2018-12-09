@@ -1,0 +1,36 @@
+Po pobraniu framweorka JADE i rozpakowaniu go dostajemy folder "jade".
+Aby poniższe komendy zadziałały, folder EvenTrafficAgents należy wkleić do katalogu "jade\scr". Komendy wywoływać trzeba z poziomu folderu "jade".
+
+Kompilowanie agentów po zmianie kodu(i pierwszy raz po pobraniu JADE):
+javac -classpath lib\jade.jar -d classes src\EvenTrafficAgents\*.java
+
+Jednym z założeń systemu jest to, że agenty mogą być jeździć pionowo, lub poziomo, na liniach y=20, x=20 lub x=40. Agenty należy ustawiać w ogległości większej niż 1. Dla wyświetlenia poprawnej animacji w visualizerze, należy uruchomić wszystkie agenty jednocześnie. W innym przypadku symulacja wciąż będzie działała poprawnie, ale nie będzie możliwe wyświetlnie wyników symulacji w postaci graficznej, jedynie tekstowej.
+Uruchomienie symulacji(różne warianty):
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);car1:EvenTrafficAgents.CarAgent(0,20);car2:EvenTrafficAgents.CarAgent(2,20);car3:EvenTrafficAgents.CarAgent(20,40);car4:EvenTrafficAgents.CarAgent(20,42)"
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);car1:EvenTrafficAgents.CarAgent(0,20);ambulance1:EvenTrafficAgents.AmbulanceAgent(-15,20)"
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);car1:EvenTrafficAgents.CarAgent(0,20);car2:EvenTrafficAgents.CarAgent(3,20);car3:EvenTrafficAgents.CarAgent(20,22);car4:EvenTrafficAgents.CarAgent(20,24);car5:EvenTrafficAgents.CarAgent(20,17);car6:EvenTrafficAgents.CarAgent(20,16);ambulance1:EvenTrafficAgents.AmbulanceAgent(-15,20)"
+
+
+Informacja o przyjętym układzie skrzyżowań:
+
+NODES:
+
+A(0,20)
+B(20,40)
+C(20,0)
+D(40,40)
+E(40,0)
+F(60,20)
+
+INTERSECTIONS
+
+I1(20,20)
+I2(40,20)
+
+
+Opracowanie wyników:
+- pliki rozdzielamy do odpowiednich folderów w folderze data - oddzielnie karetki, samochody, skrzyżowania
+- wyniki są w pliku output
