@@ -56,7 +56,7 @@ public class CarBehaviour extends CyclicBehaviour
 		informMessage=MessageTemplate.MatchPerformative(ACLMessage.INFORM);
 		informIFMessage=MessageTemplate.MatchPerformative(ACLMessage.INFORM_IF);
 		startTime = System.currentTimeMillis();
-		v=0.5;
+		v=0.1;
 	}
 //Główna metoda klasy; Wykonuje się w nieskończonej pętli
 	public void action()
@@ -67,7 +67,7 @@ public class CarBehaviour extends CyclicBehaviour
 		sendStatusMessage();
 		// pobieranie agenta znajdującego się przed danym agentem
 		nextAgent=getNextAgent();
-		while((measureTime-tempTime)<500)
+		while((measureTime-tempTime)<100)
 		{
 		// sprawdzenie czy w zasięgu pojawiła się karetka, jeżeli tak, samochód zjeżdża na pobocze 
 	    boolean isAmbulance = isNeedToMakePlaceForAmbulance(x,y,currentDirection); 
@@ -193,16 +193,16 @@ public class CarBehaviour extends CyclicBehaviour
 		switch(currentDirection)
 		{
 			case "north":
-				canTakeStep=((nextAgent.y - y)>0.5);
+				canTakeStep=((nextAgent.y - y)>1);
 				break;		
 			case "south":
-				canTakeStep=((nextAgent.y - y)<-0.5);
+				canTakeStep=((nextAgent.y - y)<-1);
 				break;
 			case "east":
-				canTakeStep=((nextAgent.x - x)>0.5);
+				canTakeStep=((nextAgent.x - x)>1);
 				break;
 			case "west":
-				canTakeStep=((nextAgent.x - x)<-0.5);
+				canTakeStep=((nextAgent.x - x)<-1);
 				break;
 			default:
 			break;

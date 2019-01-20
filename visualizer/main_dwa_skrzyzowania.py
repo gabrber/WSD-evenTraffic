@@ -37,7 +37,7 @@ crosses_x = []
 crosses_y = []
 for i in range(len(lines)):
     line = lines[i].split(' ')
-    if i < len(lines)-4:
+    if i < len(lines)-2:
         nodes_x.append(int(line[1]))
         nodes_y.append(int(line[2][:-1]))
     else:
@@ -84,28 +84,12 @@ for frame in range(num_of_frames):
     inter2_line = inter2_lines[frame].split(' ')
     inter2_x = float(inter2_line[2])
     inter2_y = float(inter2_line[3])
-    inter2_color = inter2_line[5] 
-	
-    inter3_file = open('data/intersections/inter3.txt', 'r')
-    inter3_lines = inter3_file.readlines()
-    inter3_line = inter3_lines[frame].split(' ')
-    inter3_x = float(inter3_line[2])
-    inter3_y = float(inter3_line[3])
-    inter3_color = inter3_line[5]
-	
-    inter4_file = open('data/intersections/inter4.txt', 'r')
-    inter4_lines = inter4_file.readlines()
-    inter4_line = inter4_lines[frame].split(' ')
-    inter4_x = float(inter4_line[2])
-    inter4_y = float(inter4_line[3])
-    inter4_color = inter4_line[5]
+    inter2_color = inter2_line[5]
 
     frames.append([[agents_in_frame_x, agents_in_frame_y],
                    [ambulances_in_frame_x, ambulances_in_frame_y],
                    [inter1_x, inter1_y, inter1_color],
-                   [inter2_x, inter2_y, inter2_color],
-				   [inter3_x, inter3_y, inter3_color],
-				   [inter4_x, inter4_y, inter4_color]])
+                   [inter2_x, inter2_y, inter2_color]])
 
 print(frames)
 frame_number = 0
@@ -115,8 +99,6 @@ for frame in frames:
     plt.scatter(x=frame[1][0], y=frame[1][1], c='r', s=80, marker='P')  # ambulances
     plt.scatter(x=frame[2][0], y=frame[2][1], c=frame[2][2][0], s=80, marker='o')  # inter1
     plt.scatter(x=frame[3][0], y=frame[3][1], c=frame[3][2][0], s=80, marker='o')  # inter2
-    plt.scatter(x=frame[4][0], y=frame[4][1], c=frame[4][2][0], s=80, marker='o')  # inter3
-    plt.scatter(x=frame[5][0], y=frame[5][1], c=frame[5][2][0], s=80, marker='o')  # inter4
     plt.scatter(x=nodes_x, y=nodes_y, s=20, c='k')
     plt.scatter(x=create_road_horizontal(nodes_x[0], nodes_y[0], nodes_x[5], nodes_y[5])[0],
                 y=create_road_horizontal(nodes_x[0], nodes_y[0], nodes_x[5], nodes_y[5])[1],
@@ -126,9 +108,6 @@ for frame in frames:
                 s=0.1, c='k')
     plt.scatter(x=create_road_vertical(nodes_x[4], nodes_y[4], nodes_x[3], nodes_y[3])[0],
                 y=create_road_vertical(nodes_x[4], nodes_y[4], nodes_x[3], nodes_y[3])[1],
-                s=0.1, c='k')
-    plt.scatter(x=create_road_horizontal(nodes_x[3], nodes_y[3], nodes_x[6], nodes_y[6])[0],
-                y=create_road_horizontal(nodes_x[3], nodes_y[3], nodes_x[6], nodes_y[6])[1],
                 s=0.1, c='k')
 
     plt.xlim((min(nodes_x) - 5, max(nodes_x) + 5))

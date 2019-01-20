@@ -52,14 +52,13 @@ public class IntersectionAgentBehaviour extends CyclicBehaviour
 		{
 			
 			tempTime=System.currentTimeMillis();
-			while((currentTime-tempTime)<500)
+			while((currentTime-tempTime)<100)
 			{
 				// jeżeli otrzymano wiadomość typu request, zmień światło odpowiednio do kierunku ruchu karetki
 				ArrayList<ACLMessage> msgs = ReceiveMessages(requestMessage);
 				if(msgs!=null && msgs.size()>0)
 				{
 					ambulanceDirection=msgs.get(0).getContent();
-					System.out.println("!!!!!!!!!!!!!!!!!!!INTERSECTION GOT request. DIrection = " + ambulanceDirection);
 					if((new String(ambulanceDirection).equals("north")) || (new String(ambulanceDirection).equals("south")))
 						lightColor="green";
 					else if((new String(ambulanceDirection).equals("east")) || (new String(ambulanceDirection).equals("west")))

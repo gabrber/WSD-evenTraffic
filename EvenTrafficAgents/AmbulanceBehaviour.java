@@ -50,7 +50,7 @@ public class AmbulanceBehaviour extends CyclicBehaviour
 		requestMessage=MessageTemplate.MatchPerformative(ACLMessage.REQUEST);
 		informMessage=MessageTemplate.MatchPerformative(ACLMessage.INFORM);
 		startTime = System.currentTimeMillis();
-		v=1;
+		v=0.5;
 	}
 	//Główna metoda klasy; Wykonuje się w nieskończonej pętli
 	public void action()
@@ -63,7 +63,7 @@ public class AmbulanceBehaviour extends CyclicBehaviour
 		sendRequestMessage();
 		// pobierz agenta znajdującego się przed karetką
 		nextAgent=getNextAgent();
-		while((measureTime-tempTime)<500)
+		while((measureTime-tempTime)<100)
 		{
 			
 	    if(mode=="run")

@@ -52,11 +52,11 @@ public class AmbulanceAgent extends Agent {
 	    System.out.println("CarAgent "+getAID().getName()+" terminating.");
 	}
 	// Wyznaczenie początkowego kierunku ruchu agenta
-	void GetNode()
+	protected void GetNode()
 	{
-		if(x<20 && y==20)
+		if(x<20 && (y==20 || y==40))
 			currentDirection="east";
-		else if(y>20 && ( x==20 || x==40))
+		else if(y>40 && ( x==20 || x==40))
 			currentDirection="south";
 		else if(y<20 && ( x==20 || x==40))
 			currentDirection="north";

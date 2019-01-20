@@ -1,0 +1,44 @@
+Po pobraniu framweorka JADE i rozpakowaniu go dostajemy folder "jade".
+Aby poniższe komendy zadziałały, folder EvenTrafficAgents należy wkleić do katalogu "jade\scr". Komendy wywoływać trzeba z poziomu folderu "jade".
+
+Kompilowanie agentów po zmianie kodu(i pierwszy raz po pobraniu JADE):
+javac -classpath lib\jade.jar -d classes src\EvenTrafficAgents\*.java
+
+Jednym z założeń systemu jest to, że agenty mogą być jeździć pionowo, lub poziomo, na liniach y=20, x=20 lub x=40. Agenty należy ustawiać w ogległości większej niż 1. Dla wyświetlenia poprawnej animacji w visualizerze, należy uruchomić wszystkie agenty jednocześnie. W innym przypadku symulacja wciąż będzie działała poprawnie, ale nie będzie możliwe wyświetlnie wyników symulacji w postaci graficznej, jedynie tekstowej.
+Uruchomienie symulacji(różne warianty):
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);car1:EvenTrafficAgents.CarAgent(0,20);car2:EvenTrafficAgents.CarAgent(2,20);car3:EvenTrafficAgents.CarAgent(20,40);car4:EvenTrafficAgents.CarAgent(20,42)"
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);car1:EvenTrafficAgents.CarAgent(0,20);ambulance1:EvenTrafficAgents.AmbulanceAgent(-15,20)"
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);car1:EvenTrafficAgents.CarAgent(0,20);car2:EvenTrafficAgents.CarAgent(3,20);car3:EvenTrafficAgents.CarAgent(20,22);car4:EvenTrafficAgents.CarAgent(20,24);car5:EvenTrafficAgents.CarAgent(20,17);car6:EvenTrafficAgents.CarAgent(20,16);ambulance1:EvenTrafficAgents.AmbulanceAgent(-15,20)"
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);inter3:EvenTrafficAgents.IntersectionAgent(20,40);inter4:EvenTrafficAgents.IntersectionAgent(40,40);car1:EvenTrafficAgents.CarAgent(0,20);car2:EvenTrafficAgents.CarAgent(3,20);car3:EvenTrafficAgents.CarAgent(20,22);car4:EvenTrafficAgents.CarAgent(20,24);car5:EvenTrafficAgents.CarAgent(20,17);car6:EvenTrafficAgents.CarAgent(20,16);ambulance1:EvenTrafficAgents.AmbulanceAgent(-7,20);car7:EvenTrafficAgents.CarAgent(0,40);car8:EvenTrafficAgents.CarAgent(3,40);car9:EvenTrafficAgents.CarAgent(20,42);car10:EvenTrafficAgents.CarAgent(20,44);car11:EvenTrafficAgents.CarAgent(20,37);car12:EvenTrafficAgents.CarAgent(20,36)"
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);inter3:EvenTrafficAgents.IntersectionAgent(20,40);inter4:EvenTrafficAgents.IntersectionAgent(40,40);car1:EvenTrafficAgents.CarAgent(0,20);car2:EvenTrafficAgents.CarAgent(3,20);car3:EvenTrafficAgents.CarAgent(20,22);car4:EvenTrafficAgents.CarAgent(20,24);car5:EvenTrafficAgents.CarAgent(20,17);car6:EvenTrafficAgents.CarAgent(20,16);ambulance1:EvenTrafficAgents.AmbulanceAgent(-15,20);car7:EvenTrafficAgents.CarAgent(0,40);car8:EvenTrafficAgents.CarAgent(3,40);car9:EvenTrafficAgents.CarAgent(20,42);car10:EvenTrafficAgents.CarAgent(20,44);car11:EvenTrafficAgents.CarAgent(20,37);car12:EvenTrafficAgents.CarAgent(20,36);car13:EvenTrafficAgents.CarAgent(60,40);car14:EvenTrafficAgents.CarAgent(55,40);car15:EvenTrafficAgents.CarAgent(40,52);car16:EvenTrafficAgents.CarAgent(40,54);car17:EvenTrafficAgents.CarAgent(40,47);car18:EvenTrafficAgents.CarAgent(40,46);car19:EvenTrafficAgents.CarAgent(57,40);car20:EvenTrafficAgents.CarAgent(40,46);car21:EvenTrafficAgents.CarAgent(52,20)"
+
+
+java -cp lib\jade.jar;classes jade.Boot -gui -agents "TraficMan:EvenTrafficAgents.TrafficManagerAgent;inter1:EvenTrafficAgents.IntersectionAgent(20,20);inter2:EvenTrafficAgents.IntersectionAgent(40,20);inter3:EvenTrafficAgents.IntersectionAgent(20,40);inter4:EvenTrafficAgents.IntersectionAgent(40,40);car1:EvenTrafficAgents.CarAgent(0,20);car2:EvenTrafficAgents.CarAgent(3,20);car3:EvenTrafficAgents.CarAgent(20,22);car4:EvenTrafficAgents.CarAgent(20,24);car5:EvenTrafficAgents.CarAgent(20,17);car6:EvenTrafficAgents.CarAgent(20,16);ambulance1:EvenTrafficAgents.AmbulanceAgent(-15,20);car7:EvenTrafficAgents.CarAgent(0,40);car8:EvenTrafficAgents.CarAgent(3,40);car9:EvenTrafficAgents.CarAgent(20,42);car10:EvenTrafficAgents.CarAgent(20,44);car11:EvenTrafficAgents.CarAgent(20,37);car12:EvenTrafficAgents.CarAgent(20,36);car13:EvenTrafficAgents.CarAgent(60,40);car14:EvenTrafficAgents.CarAgent(55,40);car15:EvenTrafficAgents.CarAgent(40,52);car16:EvenTrafficAgents.CarAgent(40,54);car17:EvenTrafficAgents.CarAgent(40,47);car18:EvenTrafficAgents.CarAgent(40,46);car19:EvenTrafficAgents.CarAgent(57,40);car20:EvenTrafficAgents.CarAgent(40,46);car21:EvenTrafficAgents.CarAgent(52,20);car22:EvenTrafficAgents.CarAgent(40,0);car23:EvenTrafficAgents.CarAgent(40,5);car24:EvenTrafficAgents.CarAgent(20,3);car25:EvenTrafficAgents.CarAgent(20,-1);car26:EvenTrafficAgents.CarAgent(20,1);car27:EvenTrafficAgents.CarAgent(20,-4);car28:EvenTrafficAgents.CarAgent(6,40);car29:EvenTrafficAgents.CarAgent(7,40);car30:EvenTrafficAgents.CarAgent(40,31);car31:EvenTrafficAgents.CarAgent(40,29);car32:EvenTrafficAgents.CarAgent(40,11);car33:EvenTrafficAgents.CarAgent(40,61);car34:EvenTrafficAgents.CarAgent(-6,40);car35:EvenTrafficAgents.CarAgent(40,33);car36:EvenTrafficAgents.CarAgent(53,20)"
+
+
+
+Informacja o przyjętym układzie skrzyżowań:
+
+NODES:
+
+A(0,20)
+B(20,40)
+C(20,0)
+D(40,40)
+E(40,0)
+F(60,20)
+
+INTERSECTIONS
+
+I1(20,20)
+I2(40,20)
+
+
+Opracowanie wyników:
+- pliki rozdzielamy do odpowiednich folderów w folderze data - oddzielnie karetki, samochody, skrzyżowania
+- wyniki są w pliku output

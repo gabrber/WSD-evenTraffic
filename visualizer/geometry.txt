@@ -1,8 +1,12 @@
 Node1 0 20
-Node2 20 40
+Node2 20 60
 Node3 20 0
-Node4 40 40
+Node4 40 60
 Node5 40 0
 Node6 60 20
+Node7 0 40
+Node8 60 40
 Cross1 20 20
 Cross2 40 20
+Cross3 20 40
+Cross4 40 40

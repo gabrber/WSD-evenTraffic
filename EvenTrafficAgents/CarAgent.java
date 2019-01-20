@@ -53,11 +53,11 @@ public class CarAgent extends Agent {
 	// Wyznaczenie początkowego kierunku ruchu agenta
 	protected void GetNode()
 	{
-		if(x<20 && y==20)
+		if(x<20 && (y==20 || y==40))
 			currentDirection="east";
-		else if(y>20 && ( x==20 || x==40))
+		else if(y>=30 && ( x==20 || x==40))
 			currentDirection="south";
-		else if(y<20 && ( x==20 || x==40))
+		else if(y<=30 && ( x==20 || x==40))
 			currentDirection="north";
 		else
 			currentDirection="west";		
